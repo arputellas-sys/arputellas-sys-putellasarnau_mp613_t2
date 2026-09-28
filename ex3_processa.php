@@ -1,41 +1,43 @@
 <?php
 
-// Funció per convertir Celsius a Fahrenheit
 function celsiusAFahrenheit(float $celsius): float
 {
     return ($celsius * 9 / 5) + 32;
 }
 
-// Funció per convertir Fahrenheit a Celsius
 function fahrenheitACelsius(float $fahrenheit): float
 {
     return ($fahrenheit - 32) * 5 / 9;
 }
 
-// Recollim les dades per GET
 $temperatura = $_GET['temperatura'] ?? 0;
 $escala = $_GET['escala'] ?? '';
 
-// Convertim la temperatura a float
 $temperatura = (float)$temperatura;
+
+echo '<link rel="stylesheet" href="estil.css">';
+echo '<div class="container">';
+echo '<h1>Resultat</h1>';
 
 if ($escala === 'C') {
 
     $resultat = celsiusAFahrenheit($temperatura);
 
-    echo "$temperatura °C són $resultat °F";
+    echo "<p>$temperatura °C equival a <strong>$resultat °F</strong></p>";
 
 } elseif ($escala === 'F') {
 
     $resultat = fahrenheitACelsius($temperatura);
 
-    echo "$temperatura °F són $resultat °C";
+    echo "<p>$temperatura °F equival a <strong>$resultat °C</strong></p>";
 
 } else {
 
-    echo "L'escala no és vàlida.";
+    echo "<p style='color:red;'>L'escala no és vàlida.</p>";
+
 }
 
-echo '<br><a href="ex3.php">Tornar</a>';
+echo '<br><a href="ex3.php" class="btn">Tornar enrere</a>';
+echo '</div>';
 
 ?>

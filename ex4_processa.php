@@ -4,7 +4,6 @@ function validarContrasenya(string $contrasenya): array
 {
     $errors = [];
 
-    // Comprovar longitud mínima
     if (strlen($contrasenya) < 8) {
         $errors[] = "La contrasenya ha de tenir almenys 8 caràcters.";
     }
@@ -13,26 +12,22 @@ function validarContrasenya(string $contrasenya): array
     $teNumero = false;
     $teEspecial = false;
 
-    // Recorrem cada caràcter
     for ($i = 0; $i < strlen($contrasenya); $i++) {
 
         $caracter = $contrasenya[$i];
 
-        // Majúscula
         if ($caracter >= 'A' && $caracter <= 'Z') {
             $teMajuscula = true;
         }
 
-        // Número
         if ($caracter >= '0' && $caracter <= '9') {
             $teNumero = true;
         }
 
-        // Caràcter especial
         if (
-            !($caracter >= 'a' && $caracter <= 'z') && //si no ñes ni minúscula
-            !($caracter >= 'A' && $caracter <= 'Z') && //majúscula
-            !($caracter >= '0' && $caracter <= '9')    // o numero
+            !($caracter >= 'a' && $caracter <= 'z') &&
+            !($caracter >= 'A' && $caracter <= 'Z') &&
+            !($caracter >= '0' && $caracter <= '9')
         ) {
             $teEspecial = true;
         }
@@ -53,20 +48,23 @@ function validarContrasenya(string $contrasenya): array
     return $errors;
 }
 
-// Recollim la contrasenya per POST
 $contrasenya = $_POST['contrasenya'] ?? '';
 
 $errors = validarContrasenya($contrasenya);
 
+echo '<link rel="stylesheet" href="estil.css">';
+echo '<div class="container">';
+echo '<h1>Resultat de validació</h1>';
+
 if (count($errors) === 0) {
 
-    echo "La contrasenya és correcta.";
+    echo "<p style='color:green; font-weight:bold;'>La contrasenya és correcta.</p>";
 
 } else {
 
-    echo "La contrasenya no és correcta:<br><br>";
+    echo "<p style='color:red; font-weight:bold;'>La contrasenya no és correcta:</p>";
 
-    echo "<ul>";
+    echo "<ul class='errors'>";
 
     foreach ($errors as $error) {
         echo "<li>$error</li>";
@@ -75,6 +73,7 @@ if (count($errors) === 0) {
     echo "</ul>";
 }
 
-echo '<a href="ex4.php">Tornar</a>';
+echo '<br><a href="ex4.php" class="btn">Tornar enrere</a>';
+echo '</div>';
 
 ?>

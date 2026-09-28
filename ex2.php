@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="ca">
+
 <head>
     <meta charset="UTF-8">
     <title>Exercici 2 - Mesos</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+
+<div class="container">
 
     <h1>Exercici 2 - Dies del mes</h1>
 
@@ -13,6 +18,7 @@
         <label for="mes">Selecciona un mes:</label>
 
         <select name="mes" id="mes">
+
             <option value="1">Gener</option>
             <option value="2">Febrer</option>
             <option value="3">Març</option>
@@ -25,15 +31,16 @@
             <option value="10">Octubre</option>
             <option value="11">Novembre</option>
             <option value="12">Desembre</option>
+
         </select>
 
         <input type="submit" value="Consultar">
 
     </form>
 
-    <br>
+    <a href="index.php" class="tornar">Tornar a l'índex</a>
 
-    <a href="index.php">Tornar</a>
+</div>
 
 </body>
 </html>

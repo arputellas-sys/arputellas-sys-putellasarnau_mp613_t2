@@ -1,6 +1,5 @@
 <?php
 
-// Array de 2 dimensions amb els mesos i els dies
 $mesos = [
     [1, "Gener", 31],
     [2, "Febrer", 28],
@@ -16,9 +15,10 @@ $mesos = [
     [12, "Desembre", 31]
 ];
 
-// Funció que busca un mes i retorna els dies
-function diesDelMes(int $mes, array $mesos): int
+function diesDelMes(int $mes): int
 {
+    global $mesos;
+
     foreach ($mesos as $registre) {
         if ($registre[0] === $mes) {
             return $registre[2];
@@ -28,21 +28,22 @@ function diesDelMes(int $mes, array $mesos): int
     return 0;
 }
 
-// Recollim el mes per GET
 $mes = $_GET['mes'] ?? 0;
-
-// Convertim el valor a enter
 $mes = (int)$mes;
 
-// Calculem els dies
-$dies = diesDelMes($mes, $mesos);
+$dies = diesDelMes($mes);
+
+echo '<link rel="stylesheet" href="estil.css">';
+echo '<div class="container">';
+echo '<h1>Resultat</h1>';
 
 if ($dies > 0) {
-    echo "El mes seleccionat té $dies dies.";
+    echo "<p>El mes seleccionat té <strong>$dies</strong> dies.</p>";
 } else {
-    echo "El mes no és vàlid.";
+    echo "<p style='color:red;'>El mes no és vàlid.</p>";
 }
 
-echo '<br><a href="ex2.php">Tornar</a>';
+echo '<br><a href="ex2.php" class="btn">Tornar enrere</a>';
+echo '</div>';
 
 ?>

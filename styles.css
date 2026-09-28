@@ -1,0 +1,129 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 40px 20px;
+}
+
+h1 {
+    color: #ff7b00;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+/* Contenidors principals */
+.container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estils de l'índex */
+ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    max-width: 450px;
+}
+
+ul li {
+    margin: 10px 0;
+}
+
+ul li a {
+    display: block;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s, color 0.2s;
+}
+
+ul li a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(255, 123, 0, 0.2);
+    color: #ff7b00;
+}
+
+/* Inputs i Selects */
+input[type="number"],
+input[type="text"],
+input[type="password"],
+select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0 20px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="number"]:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+select:focus {
+    border-color: #ff7b00;
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 123, 0, 0.3);
+}
+
+/* Botons */
+input[type="submit"], .btn {
+    background-color: #ff7b00;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+input[type="submit"]:hover, .btn:hover {
+    background-color: #e66a00;
+    transform: scale(1.02);
+}
+
+/* Enllaç de tornar genèric */
+a.tornar {
+    display: inline-block;
+    margin-top: 20px;
+    color: #ff7b00;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+a.tornar:hover {
+    color: #cc5500;
+    text-decoration: underline;
+}
+
+/* Alertes d'error */
+ul.errors {
+    color: red;
+    text-align: left;
+}
